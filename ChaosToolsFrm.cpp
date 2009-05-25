@@ -522,10 +522,10 @@ void ChaosToolsFrm::OnBifLeftUp(wxMouseEvent& event)
     bifxmin = tbifxmin;
     bifxmax = tbifxmax;
     bifxend = bifyend = 0;
-    rminBifText->SetValue(wxString(wxString::Format("%f", bifrmin)));
-    rmaxBifText->SetValue(wxString(wxString::Format("%f", bifrmax)));
-    xminBifText->SetValue(wxString(wxString::Format("%f", bifxmin)));
-    xmaxBifText->SetValue(wxString(wxString::Format("%f", bifxmax)));
+    rminBifText->SetValue(wxString(wxString::Format(wxT("%f"), bifrmin)));
+    rmaxBifText->SetValue(wxString(wxString::Format(wxT("%f"), bifrmax)));
+    xminBifText->SetValue(wxString(wxString::Format(wxT("%f"), bifxmin)));
+    xmaxBifText->SetValue(wxString(wxString::Format(wxT("%f"), bifxmax)));
     drawBif();
     plotBifArea->ReleaseMouse();
     event.Skip();
@@ -604,11 +604,11 @@ void ChaosToolsFrm::OnBifResetClick(wxCommandEvent& event)
             functionBifBitmap->SetBitmap(wxBitmap(quadratic_xpm));
             break;
     }
-    iterBifText->SetValue(wxString(wxString::Format("%i", bifiter)));
-    rminBifText->SetValue(wxString(wxString::Format("%.1f", bifrmin)));
-    rmaxBifText->SetValue(wxString(wxString::Format("%.1f", bifrmax)));
-    xminBifText->SetValue(wxString(wxString::Format("%.1f", bifxmin)));
-    xmaxBifText->SetValue(wxString(wxString::Format("%.1f", bifxmax)));
+    iterBifText->SetValue(wxString(wxString::Format(wxT("%i"), bifiter)));
+    rminBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifrmin)));
+    rmaxBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifrmax)));
+    xminBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifxmin)));
+    xmaxBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifxmax)));
     drawBif();
 }
 void ChaosToolsFrm::drawBif()
@@ -733,11 +733,11 @@ int ChaosToolsFrm::toBifScreenX(double x)
 void ChaosToolsFrm::functionBifChoiceSelected(wxCommandEvent& event)
 {
     OnBifResetClick(event);
-	iterBifText->SetValue(wxString(wxString::Format("%i", bifiter)));
-    rminBifText->SetValue(wxString(wxString::Format("%.1f", bifrmin)));
-    rmaxBifText->SetValue(wxString(wxString::Format("%.1f", bifrmax)));
-    xminBifText->SetValue(wxString(wxString::Format("%.1f", bifxmin)));
-    xmaxBifText->SetValue(wxString(wxString::Format("%.1f", bifxmax)));
+	iterBifText->SetValue(wxString(wxString::Format(wxT("%i"), bifiter)));
+    rminBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifrmin)));
+    rmaxBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifrmax)));
+    xminBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifxmin)));
+    xmaxBifText->SetValue(wxString(wxString::Format(wxT("%.1f"), bifxmax)));
 }
 void ChaosToolsFrm::OnMandelThread(wxCommandEvent& event)
 {
