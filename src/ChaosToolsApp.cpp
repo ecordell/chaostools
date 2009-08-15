@@ -29,6 +29,8 @@ IMPLEMENT_APP(ChaosToolsFrmApp)
 bool ChaosToolsFrmApp::OnInit()
 {
     ChaosToolsFrm* frame = new ChaosToolsFrm(NULL);
+	//fixes display issues on mac
+	frame->SetSize(500, 500);
     SetTopWindow(frame);
     frame->Show();
     return true;
