@@ -12,7 +12,6 @@ Consider bakefile.
 Script an NSIS installer.
 
 Code Structure and Cleanup:
-Split classes into multiple files
 Split GUI class into sperate files OR subclass widgets and make seperate files
 Remove need for multiple toMath and toScreen functions.
 
