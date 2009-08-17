@@ -192,6 +192,14 @@
 				RelativePath="..\src\gradientdlg.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\JuliaThread.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\MandelThread.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -212,6 +220,14 @@
 			</File>
 			<File
 				RelativePath="..\src\gradientdlg.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\JuliaThread.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\MandelThread.h"
 				>
 			</File>
 		</Filter>
