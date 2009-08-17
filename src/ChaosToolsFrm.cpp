@@ -28,6 +28,9 @@ DEFINE_EVENT_TYPE(wxEVT_JTHREAD)
 BEGIN_EVENT_TABLE(ChaosToolsFrm,wxFrame)
 	EVT_COMMAND(wxID_ANY, wxEVT_MTHREAD, ChaosToolsFrm::OnMandelThread)
 	EVT_COMMAND(wxID_ANY, wxEVT_JTHREAD, ChaosToolsFrm::OnJuliaThread)
+	EVT_MENU(wxID_EXIT, ChaosToolsFrm::OnExit)
+	EVT_MENU(ID_OPTIONS, ChaosToolsFrm::OnOptions)
+	EVT_MENU(wxID_ABOUT, ChaosToolsFrm::OnAbout)
 	EVT_CLOSE(ChaosToolsFrm::OnClose)
 	EVT_BUTTON(ID_RESETIFSBUTTON,ChaosToolsFrm::OnIfsResetClick)
 	EVT_BUTTON(ID_IFSITERBUTTON,ChaosToolsFrm::OnIfsIterClick)
@@ -48,8 +51,8 @@ END_EVENT_TABLE()
 const int numThreads = 1;
 unsigned char* rgbMandel;
 unsigned char* rgbJulia;
-std::vector<double> xCoords;
-std::vector<double> yCoords;
+wxVector<double> xCoords;
+wxVector<double> yCoords;
 int lineCtr = 0;
 
 ChaosToolsFrm::ChaosToolsFrm(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &position, const wxSize& size, long style)
@@ -115,6 +118,17 @@ ChaosToolsFrm::~ChaosToolsFrm()
 
 void ChaosToolsFrm::CreateGUIControls()
 {
+	menuBar = new wxMenuBar();
+	fileMenu = new wxMenu();
+	fileMenu->Append(wxID_EXIT, wxT("E&xit"), wxT("Exits ChaosTools"));
+	toolsMenu = new wxMenu();
+	toolsMenu->Append(ID_OPTIONS, wxT("&Options"), wxT("Select Options for ChaosTools"));
+	helpMenu = new wxMenu();
+	helpMenu->Append(wxID_ABOUT, wxT("&About"), wxT("About ChaosTools"));
+	menuBar->Append(fileMenu, wxT("&File"));
+	menuBar->Append(toolsMenu, wxT("&Tools"));
+	menuBar->Append(helpMenu, wxT("&Help"));
+	SetMenuBar(menuBar);
 	mainSizer = new wxBoxSizer(wxHORIZONTAL);
 	this->SetSizer(mainSizer);
 	this->SetAutoLayout(true);
@@ -496,7 +510,24 @@ void ChaosToolsFrm::OnClose(wxCloseEvent& event)
 {
 	Destroy();
 }
+void ChaosToolsFrm::OnExit(wxCommandEvent& event)
+{
+	Destroy();
+}
+void ChaosToolsFrm::OnAbout(wxCommandEvent& event)
+{
+	wxAboutDialogInfo info;
+	info.AddDeveloper(wxT("Evan Cordell"));
+	info.SetCopyright(wxT("(c) 2009 Evan Cordell <cordell.evan@gmail.com>"));
+	info.SetDescription(wxT("ChaosTools is a compilation of several methods for investigating mathematical chaos and related topics. It was written in completion of requirements for Evan Cordell's LSMSA Distinction project."));
+	info.SetName(wxT("ChaosTools"));
+	info.SetVersion(wxT("1.0.0"));
+	wxAboutBox(info);
+}
+void ChaosToolsFrm::OnOptions(wxCommandEvent& event)
+{
 
+}
 void ChaosToolsFrm::mainBookPageChanged(wxNotebookEvent& event)
 {
     /*
