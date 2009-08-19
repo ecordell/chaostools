@@ -1,0 +1,3 @@
+aaaaaa ICON "chaostools.ico"
+chaostools ICON "chaostools.ico"
+#include "wx/msw/wx.rc"

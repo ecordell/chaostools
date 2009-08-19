@@ -56,6 +56,9 @@ ChaosToolsFrm::ChaosToolsFrm(wxWindow *parent, wxWindowID id, const wxString &ti
 : wxFrame(parent, id, title, position, size, style)
 {
 	CreateGUIControls();
+
+	this->SetIcon(wxICON(chaostools));
+
 	//For Iterations
 	functionIterBitmap->SetBitmap(wxBitmap(logistic_xpm));
 	//For Bifurcations
