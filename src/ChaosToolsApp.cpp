@@ -29,6 +29,10 @@ IMPLEMENT_APP(ChaosToolsFrmApp)
 bool ChaosToolsFrmApp::OnInit()
 {
     ChaosToolsFrm* frame = new ChaosToolsFrm(NULL);
+
+	config = new wxFileConfig("ChaosTools", "Evan Cordell", wxEmptyString, wxEmptyString, wxCONFIG_USE_LOCAL_FILE | wxCONFIG_USE_RELATIVE_PATH);
+	wxConfigBase::Set(config);
+
 	//fixes display issues on mac
 	frame->SetSize(500, 500);
     SetTopWindow(frame);
@@ -38,5 +42,6 @@ bool ChaosToolsFrmApp::OnInit()
  
 int ChaosToolsFrmApp::OnExit()
 {
+	delete config;
 	return 0;
 }

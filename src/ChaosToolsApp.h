@@ -40,11 +40,15 @@
 	#include <wx/wxprec.h>
 #endif
 
+#include <wx/fileconf.h>
+
 class ChaosToolsFrmApp : public wxApp
 {
 	public:
 		bool OnInit();
 		int OnExit();
+	private:
+		wxFileConfig* config;
 };
 
 #endif

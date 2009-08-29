@@ -50,6 +50,7 @@
 #include <wx/utils.h>
 #include <wx/aboutdlg.h>
 #include <cstdlib>
+#include "optionsdlg.h"
 
 //thread classes
 #include "MandelThread.h"

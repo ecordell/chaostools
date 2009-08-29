@@ -526,7 +526,8 @@ void ChaosToolsFrm::OnAbout(wxCommandEvent& event)
 }
 void ChaosToolsFrm::OnOptions(wxCommandEvent& event)
 {
-
+	wxOptionsDialog opt(this);
+	opt.ShowModal();
 }
 void ChaosToolsFrm::mainBookPageChanged(wxNotebookEvent& event)
 {

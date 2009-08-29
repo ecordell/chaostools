@@ -54,7 +54,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				AdditionalIncludeDirectories="c:\wxWidgets-2.8.9\include;c:\wxWidgets-2.8.9\contrib\include"
-				ResourceOutputFileName="..\src\ChaosToolsApp.rc"
+				ResourceOutputFileName="..\src\ChaosToolsApp.res"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -200,6 +200,10 @@
 				RelativePath="..\src\MandelThread.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\optionsdlg.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -231,7 +235,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\resource.h"
+				RelativePath="..\src\optionsdlg.h"
 				>
 			</File>
 		</Filter>

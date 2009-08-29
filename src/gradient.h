@@ -3,6 +3,7 @@
 
 #include <wx/vector.h>
 #include <wx/colour.h>
+#include <wx/string.h>
 
 class wxGradient{
 public:
@@ -20,6 +21,8 @@ public:
 	void setMax(int max);
 	int getMax();
 	void setStops(wxVector<wxColor> stops);
+	void fromString(wxString str);
+	wxString toString();
 	wxVector<wxColor> getStops();
 
 protected:

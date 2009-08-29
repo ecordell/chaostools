@@ -77,6 +77,30 @@ wxVector<wxColor> wxGradient::getStops()
 {
 	return m_stops;
 }
+void wxGradient::fromString(wxString str)
+{
+	if(str.length()<=1)
+	{
+		addColorStop(*wxBLACK);
+		addColorStop(*wxWHITE);
+	}
+	while(str.length()>1)
+	{
+		addColorStop(wxColour(str.BeforeFirst(';')));
+		str = str.AfterFirst(';');
+	}
+}
+wxString wxGradient::toString()
+{
+	wxVector<wxColour>::iterator itr;
+	wxString str = "";
+	for(itr = m_stops.begin(); itr!=m_stops.end(); ++itr)
+	{
+		str.Append(itr->GetAsString(wxC2S_CSS_SYNTAX));
+		str.Append(';');
+	}
+	return str;
+}
 wxColor wxGradient::lerp(wxColor c1, wxColor c2, double value)
 {
 	unsigned char R = (1.0 - value)*c1.Red() + value*c2.Red();
