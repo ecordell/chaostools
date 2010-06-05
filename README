@@ -21,3 +21,29 @@ Add ability to modify rotation of each seperate point in IFS.
 Add color manager.
 Add extended precision option.
 Make all computations run in threads, rather than just the more computationally intensive functions.
+
+
+HOW TO INSTALL AND BUILD (On Windows)
+===========================
+1. Download MsysGit from http://code.google.com/p/msysgit/downloads/list. Current version as of writing can be found here: http://code.google.com/p/msysgit/downloads/detail?name=Git-1.7.0.2-preview20100309.exe&can=2&q=
+
+2. Install Git and run the Git Bash shell. Create a folder called chaostools and enter the following commands:
+
+cd chaostools
+git init 
+git remote add origin git@github.com:ecordell/chaostools.git
+git pull origin master
+
+You now have the latest chaostools trunk.
+
+2. Download and install wxWidgets. wxWidgets abstracts the GUI elements and allows ChaosTools to be compiled in other operating systems. ChaosTools has been tested with versions 2.8 and 2.9. To gaurantee compatibility, download wxWidgets from this link: http://prdownloads.sourceforge.net/wxwindows/wxMSW-2.9.0-Setup.exe
+
+Make sure you install wxWidgets in C:\wx29 . If you don't, you will need to change all of the library references in the build files.
+
+Build wxWidgets in the versions labelled Debug and Release only. The others will take up space and be confusing.
+
+3. Open the build project in MSVC++ version 9. It compiles with the express edition as well as newer versions and non-free versions. (It can also be compiled by gcc but the commands are quite long because of library references and the process hasn't been automated yet, see TODO. Try using wxDev-C++ for an easier time of gcc with wxWidgets)
+
+It should compile without problem. If there are any issues please open a ticket on the github issue tracker.
+
+  
