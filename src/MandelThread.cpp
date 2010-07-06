@@ -24,7 +24,7 @@
 
 DEFINE_EVENT_TYPE(wxEVT_MTHREAD)
 
-MandelThread::MandelThread(wxEvtHandler* pParent, int row, double &xmint, double &xmaxt, double &ymint, double &ymaxt, int &widtht, int &heightt, int &max) : wxThread(wxTHREAD_DETACHED), m_pParent(pParent)
+MandelThread::MandelThread(wxEvtHandler* pParent, int row, double &xmint, double &xmaxt, double &ymint, double &ymaxt, int &widtht, int &heightt, int &max, wxGradient &grad) : wxThread(wxTHREAD_DETACHED), m_pParent(pParent)
 {
     width = widtht;
     height = heightt;
@@ -36,6 +36,7 @@ MandelThread::MandelThread(wxEvtHandler* pParent, int row, double &xmint, double
     dy = (ymax-ymin)/(height);
     maxiter = max;
     r = row;
+	mGrad = grad;
 }
 void* MandelThread::Entry()
 {
@@ -73,7 +74,7 @@ unsigned char* MandelThread::DrawMandelRow()
            else
            {
                unsigned char* temp = getColour(4*(iter - (log(log(x*x+y*y)))/log(2.0)));
-               rgbdata[i*3] = temp[0];
+			   rgbdata[i*3] = temp[0];
         	   rgbdata[i*3+1] = temp[1];
         	   rgbdata[i*3+2] = temp[2];
         	   delete[] temp;
@@ -81,6 +82,16 @@ unsigned char* MandelThread::DrawMandelRow()
         }
     return rgbdata;
 }
+unsigned char* MandelThread::getColour(double iter)
+{
+	wxColour col = mGrad.getColorAt((int)(iter*10)%2000);
+	unsigned char* res = new unsigned char[3];
+    res[0] = col.Red();
+    res[1] = col.Green();
+    res[2] = col.Blue();
+    return res;
+}
+/*
 unsigned char* MandelThread::getColour(double iter)
 {
     double R = 1, G = 0, B = 0;
@@ -134,3 +145,4 @@ unsigned char* MandelThread::getColour(double iter)
     res[2] = (unsigned char)(int)(B*255.0F);
     return res;
 }
+*/

@@ -26,6 +26,7 @@
 
 #include <wx/thread.h>
 #include <wx/event.h>
+#include "gradient.h"
 
 BEGIN_DECLARE_EVENT_TYPES()
 DECLARE_EVENT_TYPE(wxEVT_MTHREAD, -1)
@@ -49,13 +50,15 @@ public:
 		\param widtht The width, in pixels, of the viewing window.
 		\param heightt The height, in pixels, of the viewing window.
 		\param max The maximum number of iterations per pixel.
+		\param grad The gradient to use to display the set
 
 		Transfers necessary information to the thread for calculating a row.
 	*/
-    MandelThread(wxEvtHandler* pParent, int row, double &xmint, double &xmaxt, double &ymint, double &ymaxt, int &widtht, int &heightt, int &max);
+    MandelThread(wxEvtHandler* pParent, int row, double &xmint, double &xmaxt, double &ymint, double &ymaxt, int &widtht, int &heightt, int &max, wxGradient &grad);
 private:
 	double xmin, xmax, ymin, ymax, dx, dy;
 	int width, height, maxiter, r;
+	wxGradient mGrad;
 	//! Called when the thread's path of execution is entered.
 	/*!
 		Creates a wxCommandEvent of type wxEVT_MTHREAD, calls functions to calculate the row, and passes that data back through the event system.

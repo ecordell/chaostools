@@ -909,6 +909,12 @@ void ChaosToolsFrm::OnMandelResetClick(wxCommandEvent& event)
 void ChaosToolsFrm::drawMandel()
 {
     int width, height, maxiter;
+	wxGradient grad;
+	wxString gradStr;
+	wxConfigBase::Get()->Read("Mandelbrot/Gradient", &gradStr);
+	grad.fromString(gradStr);
+	grad.setMin(0);
+	grad.setMax(2000);
 	lineCtr=0;
     height = plotMandelArea->GetSize().GetHeight();
     width = plotMandelArea->GetSize().GetWidth();
@@ -919,7 +925,7 @@ void ChaosToolsFrm::drawMandel()
         MandelThread *newRow[numThreads];
         for(int i = 0; i<numThreads; i++)
         {
-            newRow[i] = new MandelThread(this, r+i, manxmin, manxmax, manymin, manymax, width, height, maxiter);
+            newRow[i] = new MandelThread(this, r+i, manxmin, manxmax, manymin, manymax, width, height, maxiter, grad);
             newRow[i]->Create();
             newRow[i]->Run();
         }  

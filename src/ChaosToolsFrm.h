@@ -49,6 +49,7 @@
 #include <wx/graphics.h>
 #include <wx/utils.h>
 #include <wx/aboutdlg.h>
+#include <wx/fileconf.h>
 #include <cstdlib>
 #include "optionsdlg.h"
 
