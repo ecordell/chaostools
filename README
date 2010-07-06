@@ -40,9 +40,9 @@ You now have the latest chaostools trunk.
 
 Make sure you install wxWidgets in C:\wx29 . If you don't, you will need to change all of the library references in the build files.
 
-Build wxWidgets in the versions labelled Debug and Release only. The others will take up space and be confusing.
+Build wxWidgets in the versions labelled Debug and Release only. The others will take up space and be confusing. Ensure that they are built with the MTd and MT options, respectively. 
 
-3. Open the build project in MSVC++ version 9. It compiles with the express edition as well as newer versions and non-free versions. (It can also be compiled by gcc but the commands are quite long because of library references and the process hasn't been automated yet, see TODO. Try using wxDev-C++ for an easier time of gcc with wxWidgets)
+3. Open the build project in MSVC++ version 9. It compiles with the express edition as well as newer versions and non-free versions.  (It can also be compiled by gcc but the commands are quite long because of library references and the process hasn't been automated yet, see TODO. Try using wxDev-C++ for an easier time of gcc with wxWidgets)
 
 It should compile without problem. If there are any issues please open a ticket on the github issue tracker.
 
