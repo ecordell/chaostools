@@ -46,4 +46,4 @@ Build wxWidgets in the versions labelled Debug and Release only. The others will
 
 It should compile without problem. If there are any issues please open a ticket on the github issue tracker.
 
-Testing commit notifier again
+Testing commit notifier again again
