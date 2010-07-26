@@ -45,4 +45,4 @@ Build wxWidgets in the versions labelled Debug and Release only. The others will
 3. Open the build project in MSVC++ version 9. It compiles with the express edition as well as newer versions and non-free versions.  (It can also be compiled by gcc but the commands are quite long because of library references and the process hasn't been automated yet, see TODO. Try using wxDev-C++ for an easier time of gcc with wxWidgets)
 
 It should compile without problem. If there are any issues please open a ticket on the github issue tracker.
-Test
+Test test
