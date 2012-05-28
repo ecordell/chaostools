@@ -31,7 +31,7 @@ HOW TO INSTALL AND BUILD (On Windows)
 
 cd chaostools
 git init 
-git remote add origin git@github.com:ecordell/chaostools.git
+git remote add origin git://github.com/ecordell/chaostools.git
 git pull origin master
 
 You now have the latest chaostools trunk.
